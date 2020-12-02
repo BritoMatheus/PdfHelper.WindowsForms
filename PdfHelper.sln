@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PdfHelper", "PdfHelper\PdfHelper.csproj", "{918FE9C7-CBEB-4AAF-B585-DB09870DC38E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PdfHelper.Domain", "PdfHelper.Domain\PdfHelper.Domain.csproj", "{1E28C47F-BB0E-4A3E-BAB4-98D04ADA4B6A}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Pdf.Installer", "Pdf.Installer\Pdf.Installer.vdproj", "{5350E768-C432-48E8-9058-721DF2D1DFBB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{918FE9C7-CBEB-4AAF-B585-DB09870DC38E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{918FE9C7-CBEB-4AAF-B585-DB09870DC38E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{918FE9C7-CBEB-4AAF-B585-DB09870DC38E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{918FE9C7-CBEB-4AAF-B585-DB09870DC38E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E28C47F-BB0E-4A3E-BAB4-98D04ADA4B6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E28C47F-BB0E-4A3E-BAB4-98D04ADA4B6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E28C47F-BB0E-4A3E-BAB4-98D04ADA4B6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E28C47F-BB0E-4A3E-BAB4-98D04ADA4B6A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5350E768-C432-48E8-9058-721DF2D1DFBB}.Debug|Any CPU.ActiveCfg = Debug
+		{5350E768-C432-48E8-9058-721DF2D1DFBB}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {519D9FB9-CCAA-46DB-82F4-4F7EA56F67DD}
+	EndGlobalSection
+EndGlobal
