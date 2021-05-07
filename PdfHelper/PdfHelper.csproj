@@ -4,13 +4,24 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
+    <ApplicationIcon>Exe.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\PdfHelper.Compressor\PdfHelper.Compressor.csproj" />
     <ProjectReference Include="..\PdfHelper.Domain\PdfHelper.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="FormImagem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormCompress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormAgrupar.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

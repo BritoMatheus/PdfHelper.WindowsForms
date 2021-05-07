@@ -1,26 +1,20 @@
 ﻿using iTextSharp.text;
 using iTextSharp.text.pdf;
-using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace Domain.Pdf
 {
     public class PdfUtil
     {
-        public void Agrupar(List<string> files, string outputPdfPath)
+        public void Group(List<string> files, string outputPdfPath)
         {
-            PdfReader reader = null;
-            Document sourceDocument = null;
-            PdfCopy pdfCopyProvider = null;
             PdfImportedPage importedPage;
 
-            sourceDocument = new Document();
-            pdfCopyProvider = new PdfCopy(sourceDocument, new System.IO.FileStream(outputPdfPath, System.IO.FileMode.Create));
+            var sourceDocument = new Document();
+            var pdfCopyProvider = new PdfCopy(sourceDocument, new System.IO.FileStream(outputPdfPath, System.IO.FileMode.Create));
 
             //output file Open  
             sourceDocument.Open();
@@ -30,7 +24,7 @@ namespace Domain.Pdf
             {
                 int pages = TotalPageCount(files[f]);
 
-                reader = new PdfReader(files[f]);
+                var reader = new PdfReader(files[f]);
                 //Add pages in new file  
                 for (int i = 1; i <= pages; i++)
                 {
@@ -40,6 +34,7 @@ namespace Domain.Pdf
 
                 reader.Close();
             }
+            pdfCopyProvider.Close();
             //save the output file  
             sourceDocument.Close();
         }
@@ -52,6 +47,33 @@ namespace Domain.Pdf
                 MatchCollection matches = regex.Matches(sr.ReadToEnd());
 
                 return matches.Count;
+            }
+        }
+
+        public void Image(List<string> files, string outputPdfPath)
+        {
+            foreach (string filePatch in files)
+            {
+                iTextSharp.text.Rectangle pageSize = null;
+
+                using (var srcImage = new Bitmap(filePatch))
+                {
+                    pageSize = new iTextSharp.text.Rectangle(0, 0, srcImage.Width, srcImage.Height);
+                }
+
+                using (var ms = new MemoryStream())
+                {
+                    var document = new Document(pageSize, 0, 0, 0, 0);
+                    PdfWriter.GetInstance(document, ms).SetFullCompression();
+                    document.Open();
+                    var image = iTextSharp.text.Image.GetInstance(filePatch);
+                    document.Add(image);
+                    document.Close();
+
+                    var fileName = Path.GetFileNameWithoutExtension(filePatch);
+
+                    File.WriteAllBytes($"{outputPdfPath}{fileName}.pdf", ms.ToArray());
+                }
             }
         }
     }
